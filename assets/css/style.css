@@ -1,0 +1,16 @@
+@import 'tailwindcss';
+@property --border-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 120deg;
+}
+
+@theme {
+    --animate-rotate-border: border-rotate 3s linear infinite;
+
+    @keyframes border-rotate {
+        to {
+            --border-angle: 360deg;
+        }
+    }
+}
