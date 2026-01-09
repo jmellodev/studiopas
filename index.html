@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description"
+        content="Studio PAS - Consultoria de Personal Trainer focada em resultados reais. Treinos científicos, suporte VIP e planos personalizados para você alcançar seus objetivos de saúde e fitness.">
+    <meta name="keywords"
+        content="Personal Trainer, Consultoria Fitness, Treino Personalizado, Studio PAS, Saúde, Fitness, Treinamento Científico, Suporte VIP, Resultados Reais, Plano de Treino, Transformação Corporal">
+    <meta name="author" content="João Mello">
+    <link rel="icon" href="/assets/images/icon.png" type="image/png">
+    <title>Studio PAS | Personal Trainer</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* FAQ Animation */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .faq-content.open {
+            max-height: 500px;
+        }
+    </style>
+</head>
+
+<body class="bg-zinc-950 text-zinc-100 antialiased selection:bg-lime-400 selection:text-zinc-900">
+
+    <nav class="fixed w-full z-[100] bg-zinc-950/90 backdrop-blur-md border-b border-zinc-800">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" >
+                <img src="assets/images/vectorink-download.png" alt="Studio PAS Logo"
+                    class="h-12 md:h-18 inline-block mr-2 align-middle">
+            </a>
+            <div class="hidden md:flex space-x-8 items-center font-medium">
+                <a href="/" class="hover:text-lime-400 transition-colors">Início</a>
+                <a href="#sobre" class="hover:text-lime-400 transition-colors">Sobre</a>
+                <a href="#resultados" class="hover:text-lime-400 transition-colors">Resultados</a>
+                <a href="#servicos" class="hover:text-lime-400 transition-colors">Serviços</a>
+                <a href="#faq" class="hover:text-lime-400 transition-colors">Dúvidas</a>
+                <!-- <a href="#contato" class="px-5 py-2 bg-orange-400 text-orange-900 font-bold rounded-full hover:bg-orange-300 transition-all transform hover:scale-105">Começar</a> -->
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-3xl text-lime-400">☰</button>
+        </div>
+
+        <div id="mobile-menu"
+            class="fixed inset-0 bg-zinc-950 z-[90] flex flex-col items-center justify-center space-y-8 text-2xl font-bold transition-transform duration-500 translate-x-full">
+            <a href="/" class="mobile-link">Início</a>
+            <a href="#sobre" class="mobile-link">Sobre</a>
+            <a href="#resultados" class="mobile-link">Resultados</a>
+            <a href="#servicos" class="mobile-link">Serviços</a>
+            <a href="#faq" class="mobile-link">Dúvidas</a>
+            <!-- <a href="#contato" class="mobile-link px-8 py-3 bg-lime-400 text-zinc-950 rounded-full">Começar Agora</a> -->
+        </div>
+    </nav>
+
+    <header id="inicio" class="relative min-h-screen flex items-center pt-20 bg-fixed bg-center bg-cover"
+        style="background-image: url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop');">
+        <div class="absolute inset-0 bg-zinc-950/75 backdrop-blur-xs"></div>
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span
+                    class="inline-block py-1 px-3 border border-lime-400/30 rounded-full text-lime-400 text-sm font-semibold uppercase bg-lime-400/10 backdrop-blur-sm">Consultoria
+                    presencial</span>
+                <h1 class="text-2xl md:text-3xl font-black leading-tight uppercase">
+                    Conquiste resultados incríveis <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-emerald-500">
+                        Seja qual for seu perfil ou objetivo.
+                    </span>
+                </h1>
+                <p class="text-zinc-300 max-w-lg leading-relaxed">Não é apenas treino, é ciência aplicada ao seu
+                    objetivo. Ganhe massa e perca gordura com a metodologia Gallo Personal Systems.</p>
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="#contato"
+                        class="px-8 py-4 bg-lime-400 text-zinc-950 font-bold text-lg rounded-full text-center shadow-[0_0_20px_rgba(163,230,53,0.3)] hover:bg-lime-300 transition-all">Quero
+                        Consultoria</a>
+                    <a href="#sobre"
+                        class="px-8 py-4 border border-zinc-500 text-zinc-100 font-bold text-lg rounded-full text-center hover:bg-zinc-800 transition-all">Saiba
+                        Mais</a>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center space-y-4 justify-center">
+                <img src="assets/images/personal_pas.png" alt="Personal Trainer" class="h-180 object-cover">
+                <div class="text-white font-bold select-none text-center text-2xl">
+                    <span>Jorge</span><span class="text-blue-400 ml-2">Silva</span><br />
+                    <span class="text-xl text-zinc-400">Personal Trainer</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="sobre" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black uppercase italic italic">Por que escolher <span
+                        class="text-lime-400">meu método?</span></h2>
+                <div class="w-20 h-1 bg-lime-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <div class="text-lime-400 text-4xl mb-4 font-black italic">01.</div>
+                    <h3 class="text-xl font-bold mb-3 italic uppercase text-white">Treino Científico</h3>
+                    <p class="text-zinc-400">Chega de "achismos". Cada repetição é planejada com base na biomecânica e
+                        fisiologia do exercício.</p>
+                </div>
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <div class="text-lime-400 text-4xl mb-4 font-black italic">02.</div>
+                    <h3 class="text-xl font-bold mb-3 italic uppercase text-white">Suporte VIP</h3>
+                    <p class="text-zinc-400">Dúvidas no meio do treino? Resposta rápida via WhatsApp e correção técnica
+                        por vídeo.</p>
+                </div>
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <div class="text-lime-400 text-4xl mb-4 font-black italic">03.</div>
+                    <h3 class="text-xl font-bold mb-3 italic uppercase text-white">Resultados Reais</h3>
+                    <p class="text-zinc-400">Foco total em progressão de carga e volume para garantir que você não
+                        estacione na sua evolução.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resultados" class="py-10 bg-zinc-900 border-y border-zinc-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-4xl font-black uppercase italic">Galeria de <span
+                        class="text-lime-400">Transformações</span></h2>
+                        <div class="w-20 h-1 bg-lime-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="group relative overflow-hidden rounded-xl border border-zinc-800 h-80">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        alt="Antes e Depois">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent flex items-end p-4">
+                        <p class="text-lime-400 font-bold italic">-15kg em 6 meses</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl border border-zinc-800 h-80">
+                    <img src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=600"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        alt="Antes e Depois">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent flex items-end p-4">
+                        <p class="text-lime-400 font-bold italic">Definição Máxima</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl border border-zinc-800 h-80">
+                    <img src="https://images.unsplash.com/photo-1594381898411-846e7d193883?q=80&w=600"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        alt="Antes e Depois">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent flex items-end p-4">
+                        <p class="text-lime-400 font-bold italic">Ganho de Massa</p>
+                    </div>
+                </div>
+                <div class="group relative overflow-hidden rounded-xl border border-zinc-800 h-80">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=600"
+                        class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                        alt="Antes e Depois">
+                    <div class="absolute inset-0 bg-gradient-to-t from-zinc-950/90 to-transparent flex items-end p-4">
+                        <p class="text-lime-400 font-bold italic">Evolução no Palco</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosso_espaco" class="py-10 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-4xl font-black uppercase italic">Nosso <span class="text-lime-400">Espaço</span></h2>
+                <div class="w-20 h-1 bg-lime-400 mx-auto mt-4 rounded-full"></div>
+                <p class="text-zinc-500 mt-4 text-sm">Clique na imagem para ampliar</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+                <img src="assets/images/studio/studio_1.jpg" alt="Espaço 1"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_2.jpg" alt="Espaço 2"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_3.jpg" alt="Espaço 3"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_4.jpg" alt="Espaço 4"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_5.jpg" alt="Espaço 5"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_6.jpg" alt="Espaço 6"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_7.jpg" alt="Espaço 7"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+                <img src="assets/images/studio/studio_8.jpg" alt="Espaço 8"
+                    class="gallery-item w-full h-50 object-cover rounded-xl border border-zinc-800 cursor-zoom-in hover:scale-[1.02] transition-transform duration-300">
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox"
+        class="fixed inset-0 z-[200] bg-zinc-950/95 flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+        <button id="close-lightbox"
+            class="absolute top-6 right-6 text-white text-4xl hover:text-lime-400">&times;</button>
+
+        <button id="prev-img"
+            class="absolute left-6 text-white text-4xl hover:text-lime-400 p-4 font-bold">&leftarrow;</button>
+
+        <div class="max-w-[90%] max-h-[80%] flex flex-col items-center">
+            <img id="lightbox-img" src="" alt="Ampliada"
+                class="max-w-full max-h-full rounded-lg shadow-2xl border border-zinc-800">
+            <p id="lightbox-caption" class="text-zinc-400 mt-4 italic font-medium"></p>
+        </div>
+
+        <button id="next-img"
+            class="absolute right-6 text-white text-4xl hover:text-lime-400 p-4 font-bold">&rightarrow;</button>
+    </div>
+
+    <section id="depoimentos" class="py-10 bg-zinc-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-black uppercase italic italic">Depoimentos de <span
+                        class="text-lime-400">Sucesso</span></h2>
+                <div class="w-20 h-1 bg-lime-400 mx-auto mt-4 rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <p class="text-zinc-400 italic mb-6">"O método do StudioPAS transformou meu corpo e minha mente.
+                        Nunca me senti tão confiante!"</p>
+                    <div class="font-bold text-white">Ana Paula</div>
+                    <div class="text-zinc-500 text-sm">Cliente desde 2020</div>
+                </div>
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <p class="text-zinc-400 italic mb-6">"Com o suporte VIP, nunca fiquei perdido. Cada dúvida era
+                        respondida rapidamente, o que fez toda a diferença."</p>
+                    <div class="font-bold text-white">Carlos Eduardo</div>
+                    <div class="text-zinc-500 text-sm">Cliente desde 2021</div>
+                </div>
+                <div
+                    class="bg-zinc-900/50 p-8 rounded-2xl border border-zinc-800 hover:border-lime-400/50 transition-all group">
+                    <p class="text-zinc-400 italic mb-6">"Recomendo para todos que querem resultados reais. O treino
+                        científico realmente funciona!"</p>
+                    <div class="font-bold text-white">Mariana Souza</div>
+                    <div class="text-zinc-500 text-sm">Cliente desde 2019</div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="servicos" class="py-10 bg-zinc-950">
+        <div class="container mx-auto px-6">
+            <h2 class="text-2xl md:text-4xl font-black text-center mb-16 uppercase italic">Invista no seu <span
+                    class="text-lime-400">Futuro</span>
+                    <div class="w-20 h-1 bg-lime-400 mx-auto mt-4 rounded-full"></div>
+            </h2>
+                    
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div
+                    class="bg-zinc-900/40 p-8 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col">
+                    <h3 class="md:text-xl font-bold text-zinc-500 mb-2 uppercase italic">Treinamento para Hipertensos</h3>
+                    <div class="text-4xl font-black mb-6 italic italic text-white">R$ 149<span
+                            class="text-sm font-normal text-zinc-600">/mês</span></div>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm md:text-base text-zinc-400">
+                        <li>✓ A prescrição de treinamento, bem como o ajuste alimentar são realizados de acordo com a necessidade verificada na Avaliação e conforme objetivo do cliente.</li>
+                        <li>✓ Check-ins quinzenais</li>
+                        <li>✓ Suporte por Chat</li>
+                    </ul>
+                    <a href="https://wa.me/p/7559777377444816/5511985816081" target="_blank"
+                        class="block w-full py-3 text-center border border-zinc-700 rounded-xl hover:bg-zinc-800 transition-all">Saiba mais</a>
+                </div>
+                <div
+                    class="bg-zinc-800 p-8 rounded-3xl border-2 border-lime-400 transform md:-translate-y-4 shadow-2xl flex flex-col relative overflow-hidden">
+                    <div
+                        class="absolute top-0 right-0 bg-lime-400 text-zinc-950 text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase">
+                        Popular</div>
+                    <h3 class="text-sm md:text-xl font-bold text-lime-400 mb-2 uppercase italic">Treinamento Customizado</h3>
+                    <div class="text-4xl font-black mb-6 italic italic text-white">R$ 349<span
+                            class="text-sm font-normal text-zinc-400">/mês</span></div>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm md:text-base text-zinc-300">
+                        <li>✓ Através de uma avaliação customizada, são identificados os pontos que estão fora da normalidade do seu corpo.</li>
+                        <li>✓ 1 Aula Presencial/Mês</li>
+                        <li>✓ Guia Nutricional</li>
+                        <li>✓ Ajustes Semanais</li>
+                    </ul>
+                    <a href="https://wa.me/p/7518884768207285/5511985816081" target="_blank"
+                        class="block w-full py-3 text-center bg-lime-400 text-zinc-950 font-black rounded-xl hover:bg-lime-300 transition-all shadow-lg">Saiba mais</a>
+                </div>
+                <div
+                    class="bg-zinc-900/40 p-8 rounded-3xl border border-zinc-800 hover:border-zinc-700 transition-all flex flex-col">
+                    <h3 class="text-sm md:text-xl font-bold text-zinc-500 mb-2 uppercase italic">Treinamento para Hipertensos e Diabéticos</h3>
+                    <div class="text-4xl font-black mb-6 italic italic text-white">R$ 890<span
+                            class="text-sm font-normal text-zinc-600">/mês</span></div>
+                    <ul class="space-y-4 mb-8 flex-1 text-sm md:text-base text-zinc-400">
+                        <li>✓ Com a devida liberação médica e teste de esforço (Teste ergométrico) realizado pelo médico do cliente, é realizada medição corporal para verificar percentual de gordura...</li>
+                        <li>✓ Avaliação Física</li>
+                        <li>✓ Vagas Limitadas</li>
+                    </ul>
+                    <a href="https://wa.me/p/7854049827978516/5511985816081" target="_blank"
+                        class="block w-full py-3 text-center border border-zinc-700 rounded-xl hover:bg-zinc-800 transition-all">Saiba mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 bg-zinc-900 border-y border-zinc-800">
+        <div class="container mx-auto px-6 max-w-3xl">
+            <h2 class="text-4xl font-black text-center mb-16 italic uppercase">Dúvidas <span
+                    class="text-lime-400">Frequentes</span></h2>
+            <div class="space-y-4">
+                <div class="border border-zinc-800 rounded-xl bg-zinc-950 overflow-hidden">
+                    <button class="faq-trigger w-full p-6 text-left flex justify-between items-center outline-none">
+                        <span class="font-bold text-lg">Como recebo meu plano de treino?</span>
+                        <span class="text-lime-400 text-xl transition-transform duration-300 inline-block">▼</span>
+                    </button>
+                    <div class="faq-content px-6">
+                        <div class="pb-6 text-zinc-400 leading-relaxed">Após o pagamento e preenchimento da ficha de
+                            anamnese, seu treino é liberado em até 48 horas úteis no nosso aplicativo exclusivo.</div>
+                    </div>
+                </div>
+                <div class="border border-zinc-800 rounded-xl bg-zinc-950 overflow-hidden">
+                    <button class="faq-trigger w-full p-6 text-left flex justify-between items-center outline-none">
+                        <span class="font-bold text-lg">Iniciantes podem fazer a consultoria?</span>
+                        <span class="text-lime-400 text-xl transition-transform duration-300 inline-block">▼</span>
+                    </button>
+                    <div class="faq-content px-6">
+                        <div class="pb-6 text-zinc-400 leading-relaxed">Com certeza! O treino é adaptado para o seu
+                            nível atual. Iniciantes recebem vídeos com explicações detalhadas de cada movimento para
+                            evitar lesões.</div>
+                    </div>
+                </div>
+                <div class="border border-zinc-800 rounded-xl bg-zinc-950 overflow-hidden">
+                    <button class="faq-trigger w-full p-6 text-left flex justify-between items-center outline-none">
+                        <span class="font-bold text-lg">É necessário treinar em academia?</span>
+                        <span class="text-lime-400 text-xl transition-transform duration-300 inline-block">▼</span>
+                    </button>
+                    <div class="faq-content px-6">
+                        <div class="pb-6 text-zinc-400 leading-relaxed">Não. Eu prescrevo treinos tanto para quem treina
+                            em casa quanto para quem treina em academia, adaptando os exercícios aos equipamentos que
+                            você tiver.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-zinc-950">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-zinc-900 p-8 md:p-12 rounded-3xl border border-zinc-800 text-center shadow-2xl">
+                <h2 class="text-4xl font-black mb-6 uppercase italic italic text-white">Mude sua <span
+                        class="text-lime-400">Vida!</span></h2>
+                <form action="https://formspree.io/f/SUA_CHAVE_AQUI" method="POST"
+                    class="grid md:grid-cols-2 gap-4 text-left">
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-zinc-500 uppercase ml-2">Nome</label>
+                        <input type="text" name="name" placeholder="Ex: João Silva" required
+                            class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl outline-none focus:border-lime-400">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-xs font-bold text-zinc-500 uppercase ml-2">E-mail</label>
+                        <input type="email" name="email" placeholder="email@exemplo.com" required
+                            class="bg-zinc-950 border border-zinc-800 p-4 rounded-xl outline-none focus:border-lime-400">
+                    </div>
+                    <button type="submit"
+                        class="md:col-span-2 mt-4 py-4 bg-lime-400 text-zinc-950 font-black rounded-xl uppercase italic hover:bg-lime-300 transition-all shadow-lg">Enviar
+                        Solicitação Gratuita</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-zinc-950 py-12 border-t border-zinc-900">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <a href="#" class="text-2xl font-black tracking-tighter uppercase italic">
+                    <img src="assets/images/vectorink-download.png" alt="Studio PAS Logo"
+                        class="h-12 inline-block mr-2 align-middle">
+                </a>
+                <p class="text-zinc-500 text-sm mt-2">Transformando corpos e mentes desde 2018.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://instagram.com/studiopas.tc"
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-purple-400 to-pink-500 transition-all font-bold">@studiopas.tc</a>
+                <a href="#" class="text-zinc-400 hover:text-lime-400 transition-all font-bold">WHATSAPP</a>
+            </div>
+            <p class="flex flex-col space-y-4 items-center text-zinc-400 text-[10px] tracking-widest">
+                © 2026 Studio Pas. Todos os direitos reservados.
+                <span>
+                    Desenvolvido por <a href="https://www.instagram.com/jmellodev/" target="_blank"
+                        class="text-lime-400 hover:underline">João Mello</a>
+                </span>
+            </p>
+        </div>
+    </footer>
+
+    <button id="scroll-to-top"
+        class="fixed bottom-6 right-6 bg-lime-400 text-zinc-950 w-12 h-12 rounded-full shadow-2xl opacity-0 transition-all duration-300 pointer-events-none z-[110] font-bold hover:scale-110">↑</button>
+
+    <a id="whatsapp"
+        href="https://wa.me/5511985816081?text=Olá! Gostaria de saber mais sobre a consultoria do Studio PAS."
+        target="_blank"
+        class="fixed bottom-6 right-6 bg-green-500 text-white w-12 h-12 rounded-full shadow-2xl flex items-center justify-center z-[110] hover:scale-110 hover:bg-green-600 transition-all duration-500 group">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="currentColor" viewBox="0 0 16 16">
+            <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.898 7.898 0 0 0-2.327-5.607zM7.994 14.52a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+        </svg>
+        <span
+            class="absolute right-full mr-4 bg-zinc-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap border border-zinc-800">Falar
+            com Jorge agora</span>
+    </a>
+
+    <script>
+        // LÓGICA DO LIGHTBOX (GALERIA AMPLIADA)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const closeBtn = document.getElementById('close-lightbox');
+        const prevBtn = document.getElementById('prev-img');
+        const nextBtn = document.getElementById('next-img');
+
+        let currentImgIndex = 0;
+
+        // Abrir Lightbox
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImgIndex = index;
+                showImage(currentImgIndex);
+                lightbox.classList.remove('opacity-0', 'pointer-events-none');
+            });
+        });
+
+        function showImage(index) {
+            const item = galleryItems[index];
+            lightboxImg.src = item.src;
+            lightboxCaption.innerText = item.alt;
+        }
+
+        // Navegação
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex + 1) % galleryItems.length;
+            showImage(currentImgIndex);
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentImgIndex = (currentImgIndex - 1 + galleryItems.length) % galleryItems.length;
+            showImage(currentImgIndex);
+        });
+
+        // Fechar ao clicar no X ou fora da imagem
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.add('opacity-0', 'pointer-events-none');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+
+        // Fechar com tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape") lightbox.classList.add('opacity-0', 'pointer-events-none');
+        });
+        // MENU MOBILE
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.contains('translate-x-0');
+            mobileMenu.classList.toggle('translate-x-0', !isOpen);
+            mobileMenu.classList.toggle('translate-x-full', isOpen);
+            menuBtn.innerText = isOpen ? '☰' : '✕';
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // FAQ
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('span:last-child');
+                const isOpen = content.classList.toggle('open');
+                icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+
+                // Fecha outros
+                document.querySelectorAll('.faq-content').forEach(other => {
+                    if (other !== content) {
+                        other.classList.remove('open');
+                        other.previousElementSibling.querySelector('span:last-child').style.transform = 'rotate(0deg)';
+                    }
+                });
+            });
+        });
+
+        // SCROLL TOP
+        const scrollBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                whatsapp.classList.replace('bottom-6', 'bottom-22');
+                scrollBtn.classList.replace('opacity-0', 'opacity-100');
+                scrollBtn.classList.remove('pointer-events-none');
+            } else {
+                whatsapp.classList.replace('bottom-22', 'bottom-6');
+                scrollBtn.classList.replace('opacity-100', 'opacity-0');
+                scrollBtn.classList.add('pointer-events-none');
+            }
+        });
+        scrollBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    </script>
+</body>
+
+</html>
