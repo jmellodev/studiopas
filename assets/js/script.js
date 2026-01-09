@@ -89,11 +89,11 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
 const scrollBtn = document.getElementById('scroll-to-top');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
-        whatsapp.classList.replace('bottom-6', 'bottom-22');
+        // whatsapp.classList.replace('bottom-6', 'bottom-22');
         scrollBtn.classList.replace('opacity-0', 'opacity-100');
         scrollBtn.classList.remove('pointer-events-none');
     } else {
-        whatsapp.classList.replace('bottom-22', 'bottom-6');
+        // whatsapp.classList.replace('bottom-22', 'bottom-6');
         scrollBtn.classList.replace('opacity-100', 'opacity-0');
         scrollBtn.classList.add('pointer-events-none');
     }
