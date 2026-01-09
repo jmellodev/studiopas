@@ -1,4 +1,21 @@
 /* @import 'tailwindcss'; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* FAQ Animation */
+.faq-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-content.open {
+    max-height: 500px;
+}
+
 @property --border-angle {
     syntax: '<angle>';
     inherits: false;
