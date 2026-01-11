@@ -18,7 +18,7 @@ const scrollBtn = document.getElementById('scroll-to-top');
 
 let currentImgIndex = 0;
 
-// 1. LÓGICA DO CAROUSEL (Navegação lateral)
+// 1. CAROUSEL
 if (nextCarousel && prevCarousel) {
     nextCarousel.addEventListener('click', () => {
         carousel.scrollBy({ left: carousel.offsetWidth / 2, behavior: 'smooth' });
@@ -28,7 +28,7 @@ if (nextCarousel && prevCarousel) {
     });
 }
 
-// 2. LÓGICA DO LIGHTBOX
+// 2. LIGHTBOX
 galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
         currentImgIndex = index;
