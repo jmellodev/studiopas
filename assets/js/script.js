@@ -1,4 +1,4 @@
-// LÓGICA DO LIGHTBOX (GALERIA AMPLIADA)
+// ELEMENTOS DO DOM
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxCaption = document.getElementById('lightbox-caption');
@@ -7,9 +7,28 @@ const closeBtn = document.getElementById('close-lightbox');
 const prevBtn = document.getElementById('prev-img');
 const nextBtn = document.getElementById('next-img');
 
+const carousel = document.getElementById('carousel');
+const prevCarousel = document.getElementById('prev-carousel');
+const nextCarousel = document.getElementById('next-carousel');
+
+const menuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileLinks = document.querySelectorAll('.mobile-link');
+const scrollBtn = document.getElementById('scroll-to-top');
+
 let currentImgIndex = 0;
 
-// Abrir Lightbox
+// 1. LÓGICA DO CAROUSEL (Navegação lateral)
+if (nextCarousel && prevCarousel) {
+    nextCarousel.addEventListener('click', () => {
+        carousel.scrollBy({ left: carousel.offsetWidth / 2, behavior: 'smooth' });
+    });
+    prevCarousel.addEventListener('click', () => {
+        carousel.scrollBy({ left: -carousel.offsetWidth / 2, behavior: 'smooth' });
+    });
+}
+
+// 2. LÓGICA DO LIGHTBOX
 galleryItems.forEach((item, index) => {
     item.addEventListener('click', () => {
         currentImgIndex = index;
@@ -24,7 +43,6 @@ function showImage(index) {
     lightboxCaption.innerText = item.alt;
 }
 
-// Navegação
 nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     currentImgIndex = (currentImgIndex + 1) % galleryItems.length;
@@ -37,26 +55,17 @@ prevBtn.addEventListener('click', (e) => {
     showImage(currentImgIndex);
 });
 
-// Fechar ao clicar no X ou fora da imagem
-closeBtn.addEventListener('click', () => {
-    lightbox.classList.add('opacity-0', 'pointer-events-none');
-});
+closeBtn.addEventListener('click', () => lightbox.classList.add('opacity-0', 'pointer-events-none'));
 
 lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-        lightbox.classList.add('opacity-0', 'pointer-events-none');
-    }
+    if (e.target === lightbox) lightbox.classList.add('opacity-0', 'pointer-events-none');
 });
 
-// Fechar com tecla ESC
 document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") lightbox.classList.add('opacity-0', 'pointer-events-none');
 });
-// MENU MOBILE
-const menuBtn = document.getElementById('mobile-menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
-const mobileLinks = document.querySelectorAll('.mobile-link');
 
+// 3. MENU MOBILE
 function toggleMenu() {
     const isOpen = mobileMenu.classList.contains('translate-x-0');
     mobileMenu.classList.toggle('translate-x-0', !isOpen);
@@ -67,33 +76,31 @@ function toggleMenu() {
 menuBtn.addEventListener('click', toggleMenu);
 mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
 
-// FAQ
+// 4. FAQ (ACORDEÃO)
 document.querySelectorAll('.faq-trigger').forEach(trigger => {
     trigger.addEventListener('click', () => {
         const content = trigger.nextElementSibling;
         const icon = trigger.querySelector('span:last-child');
         const isOpen = content.classList.toggle('open');
-        icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
 
-        // Fecha outros
+        if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+
         document.querySelectorAll('.faq-content').forEach(other => {
             if (other !== content) {
                 other.classList.remove('open');
-                other.previousElementSibling.querySelector('span:last-child').style.transform = 'rotate(0deg)';
+                const otherIcon = other.previousElementSibling.querySelector('span:last-child');
+                if (otherIcon) otherIcon.style.transform = 'rotate(0deg)';
             }
         });
     });
 });
 
-// SCROLL TOP
-const scrollBtn = document.getElementById('scroll-to-top');
+// 5. SCROLL TOP
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
-        // whatsapp.classList.replace('bottom-6', 'bottom-22');
         scrollBtn.classList.replace('opacity-0', 'opacity-100');
         scrollBtn.classList.remove('pointer-events-none');
     } else {
-        // whatsapp.classList.replace('bottom-22', 'bottom-6');
         scrollBtn.classList.replace('opacity-100', 'opacity-0');
         scrollBtn.classList.add('pointer-events-none');
     }

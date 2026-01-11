@@ -16,6 +16,22 @@ body {
     max-height: 500px;
 }
 
+.carousel-container {
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+.carousel-item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+}
+
 @property --border-angle {
     syntax: '<angle>';
     inherits: false;
