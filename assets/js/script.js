@@ -98,9 +98,11 @@ document.querySelectorAll('.faq-trigger').forEach(trigger => {
 // 5. SCROLL TOP
 window.addEventListener('scroll', () => {
     if (window.scrollY > 500) {
+        menuTop.classList.add('backdrop-blur-sm', 'bg-white/70', 'shadow-md');
         scrollBtn.classList.replace('opacity-0', 'opacity-100');
         scrollBtn.classList.remove('pointer-events-none');
     } else {
+        menuTop.classList.remove('backdrop-blur-sm', 'bg-white/70', 'shadow-md');
         scrollBtn.classList.replace('opacity-100', 'opacity-0');
         scrollBtn.classList.add('pointer-events-none');
     }

@@ -5,6 +5,18 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover svg {
+    transform: scale(1.1);
+}
+
+.nav-link svg {
+    transition: transform 0.3s ease;
+}
+
 /* FAQ Animation */
 .faq-content {
     max-height: 0;
