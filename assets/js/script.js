@@ -67,8 +67,8 @@ document.addEventListener('keydown', (e) => {
 
 // 3. MENU MOBILE
 function toggleMenu() {
-    const isOpen = mobileMenu.classList.contains('translate-x-0');
-    mobileMenu.classList.toggle('translate-x-0', !isOpen);
+    const isOpen = mobileMenu.classList.contains('translate-x-4');
+    mobileMenu.classList.toggle('translate-x-4', !isOpen);
     mobileMenu.classList.toggle('translate-x-full', isOpen);
     menuBtn.innerText = isOpen ? '☰' : '✕';
 }
